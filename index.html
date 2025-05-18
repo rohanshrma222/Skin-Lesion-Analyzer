@@ -23,31 +23,69 @@
 
 <body class="bground-color">
 
-<div class="app-container">
-    <!-- App Header -->
-    <div class="app-header">
-        <h1 class="app-title">Skin Lesion Analyzer</h1>
-        <p class="app-subtitle">Upload an image of your skin lesion for AI-powered analysis and risk assessment</p>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-logo">
+            <img src="assets/robotfavicon.png" alt="Logo" class="logo-img">
+            <span class="logo-text">SkinAI</span>
+        </div>
+        <div class="navbar-links">
+            <a href="faq.html" class="nav-link">About Us</a>
+        </div>
     </div>
-    
-    <!-- Upload Card -->
-    <div class="upload-card">
-        <div class="upload-area" id="image-display-area">
-            <div id="no-image-selected">
-                <i class="fas fa-camera upload-icon"></i>
-                <h3 class="upload-text">No image selected</h3>
-                <p class="upload-subtext">Upload a clear image of the skin lesion</p>
-            </div>
-            <div id="image-preview" style="display:none;">
-                <img id="selected-image" class="w3-round" style="max-width:100%; max-height:300px;" src="assets/samplepic.jpg" alt="Selected skin lesion image">
+</nav>
+
+<div class="app-container">
+    <!-- Two-column layout -->
+    <div class="main-content">
+        <!-- Left Column - Title and Description -->
+        <div class="left-column">
+            <div class="app-header">
+                <h1 class="app-title">Skin Lesion Analyzer</h1>
+                <p class="app-subtitle">Upload an image of your skin lesion for AI-powered analysis and risk assessment</p>
+                <p class="app-description">
+                    Our advanced AI model can help identify potential skin conditions by analyzing images of skin lesions. 
+                    This tool uses machine learning to provide preliminary assessments, but should not replace professional medical advice.
+                </p>
+                <div class="key-features">
+                    <div class="feature">
+                        <i class="fas fa-bolt feature-icon"></i>
+                        <span>Fast Analysis</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <span>Private & Secure</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-bar feature-icon"></i>
+                        <span>Detailed Results</span>
+                    </div>
+                </div>
             </div>
         </div>
         
-        <div class="w3-center">
-            <button class="upload-button" onclick="setTimeout(simulateClick.bind(null, 'image-selector'), 200)">
-                <i class="fas fa-upload"></i> Upload Skin Image
-            </button>
-            <p class="format-text">Supported formats: JPEG, PNG</p>
+        <!-- Right Column - Upload Area -->
+        <div class="right-column">
+            <div class="upload-card">
+                <div class="upload-area" id="image-display-area">
+                    <div id="no-image-selected">
+                        <i class="fas fa-camera upload-icon"></i>
+                        <h3 class="upload-text">No image selected</h3>
+                        <p class="upload-subtext">Upload a clear image of the skin lesion</p>
+                    </div>
+                    <div id="image-preview" style="display:none;">
+                        <img id="selected-image" class="w3-round" style="max-width:100%; max-height:300px;" src="assets/samplepic.jpg" alt="Selected skin lesion image">
+                    </div>
+                </div>
+                
+                <div class="w3-center">
+                    <button class="upload-button" onclick="setTimeout(simulateClick.bind(null, 'image-selector'), 200)">
+                        <i class="fas fa-upload"></i> Upload Skin Image
+                    </button>
+                    <p class="format-text">Supported formats: JPEG, PNG</p>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -67,7 +105,7 @@
     
     <!-- Footer -->
     <div class="footer">
-        <a href="faq.html">About this tool</a> | ©2025 Skin Lesion Analyzer
+        <p>© 2025 Skin Lesion Analyzer | All rights reserved</p>
     </div>
 </div>
 
