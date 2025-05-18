@@ -1,444 +1,304 @@
-
 .bground-color {
-	background-color: #F8F8F8; /* #1B2A49;  #1B2A49; #F8F8F8;  rgb(248,248,248) */
+    background-color: #e8f4f8; /* Light blue background */
 }
 
 .text-color {
-	color: #404040;  /*rgb(64,64,64) */
+    color: #2c3e50;  /* Darker text color */
 }
 
 .top-font {
-	font-size: 18px;
-	letter-spacing: .07em;
-	
+    font-size: 18px;
+    letter-spacing: .07em;
+    font-weight: 500;
 }
 
 .info-font {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 .fname-font {
-	font-size: 14px;
+    font-size: 14px;
 }
-
-
 
 .topp-padding {
-	padding-top: 30px;
+    padding-top: 30px;
 }
 
-
-
 li {
-	font-family: 'Roboto', serif;
-	font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
 }
 
 a:hover { 
-  color: #FF0000;
+    color: #009688;
 }
-
-
 
 .add-margin {
-	margin-bottom: 30px;
-	margin-top: 5px;
+    margin-bottom: 30px;
+    margin-top: 5px;
 }
-
 
 .add-padding {
-	
-	padding-bottom: 30px;
+    padding-bottom: 30px;
 }
-
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
-
-
 
 input {
-	font-size: 20px;
-	font-family: Helvetica, sans-serif;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
-
 .title {
-	padding-top: 30px;
-	padding-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .hide {
-	display: none;
+    display: none;
 }
 
 .new-font {
-	font-family: georgia, serif;
-	letter-spacing: .05em;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: .05em;
 }
 
 .space-letters-large {
-	letter-spacing: .1em;
+    letter-spacing: .1em;
 }
-
 
 .space-letters {
-	letter-spacing: .05em;
+    letter-spacing: .05em;
 }
-
-
 
 .unblock {
-display: inline-block;
+    display: inline-block;
 }
-
-
 
 input[type="file"] {
     opacity: 0;
-    
 }
-
 
 .dont-break-out {
-	/*These are technically the same but use both 
-	to ensure all browsers are supported*/
-	overflow-wrap: break-word;
-	word-wrap: break-word;
+    /*These are technically the same but use both 
+    to ensure all browsers are supported*/
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
-
 
 .new-font {
-	font-family: monospace, serif;
-	font-size: 15px;
-	
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
 }
 
-
-
-
 .logo h1 {
-	font-size: 50px;
-	font-family: 'Oswald', sans-serif;
-	line-height: 1.1;
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.1;
 }
 
 .logo1 {
-	font-family: 'Oswald', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
-
 
 .header-style {
-	height: 50px;
-	background-color: #0375b4; /*#303030;*/
+    height: 50px;
+    background-color: #0375b4; /*#303030;*/
 }
-
 
 .adjust-fontcolor {
-	color: black;
+    color: black;
 }
-
 
 .normal-header {
-	display: block;
+    display: block;
 }
-
 
 .btn-font {
-	font-size: 18px;
-	letter-spacing: .05em;
+    font-size: 18px;
+    letter-spacing: .05em;
+    font-weight: 600;
 }
 
-/*
--------------------------
-Specifically for tablets
--------------------------
-*/
-
-.tag-font {
-	font-size: 16px;
-	
+/* New modern styles */
+.app-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.new-font {
-	font-family: monospace, serif;
-	font-size: 16px;
+.app-header {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-
-
-.side-margin {
-	margin-left: 20%;
-	margin-right: 20%;
+.app-title {
+    color: #009688;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-.adjust-image {
-	max-width: 400px;
-	
+.app-subtitle {
+    color: #607d8b;
+    font-size: 18px;
+    margin-bottom: 40px;
 }
 
-.bottom-padding {
-	padding-bottom: 300px;
+.upload-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-bottom: 30px;
 }
 
-.bottom-margin {
-	margin-bottom: 300px;
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #fafafa;
 }
 
-
-/*
------------------
-MEDIA QUERIES
------------------
-*/
-
-@media only screen and (min-device-width: 1200px) {
-/* Devices that are Laptops and Desktops */
-
-
-
-.btn-font {
-	font-size: 15px;
-	letter-spacing: .03em;
+.upload-icon {
+    font-size: 60px;
+    color: #ccc;
+    margin-bottom: 20px;
 }
 
-.new-font {
-	font-family: monospace, serif;
-	font-size: 15px;
+.upload-text {
+    color: #607d8b;
+    margin-bottom: 10px;
 }
 
-
-
-.side-margin {
-	margin-left: 30%;
-	margin-right: 30%;
+.upload-subtext {
+    color: #9e9e9e;
+    font-size: 14px;
 }
 
-
-input {
-	font-size: 16px;
+.upload-button {
+    background-color: #009688;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 12px 25px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
 }
 
-
-
-.logo h1 {
-	font-size: 35px;
+.upload-button:hover {
+    background-color: #00796b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.adjust-image {
-	max-width: 300px;
-	
+.upload-button i {
+    margin-right: 10px;
 }
 
-
-.card {
-	box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
-	margin-top: 16px;
-	margin-bottom: 16px;
-	
+.format-text {
+    text-align: center;
+    color: #9e9e9e;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
-.tag-font {
-	font-size: 12px;
-	
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #607d8b;
+    font-size: 14px;
 }
 
-.bottom-padding {
-	padding-bottom: 300px;
+.footer a {
+    color: #009688;
+    text-decoration: none;
 }
 
+.footer a:hover {
+    text-decoration: underline;
+}
 
-}/*Close Media Query*/
+.results-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+}
+
+.results-title {
+    color: #009688;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.prediction-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.prediction-item:last-child {
+    border-bottom: none;
+}
+
+.file-name {
+    color: #009688;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.progress-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.progress-bar {
+    color: #009688;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+    .app-title {
+        font-size: 32px;
+    }
+    
+    .app-subtitle {
+        font-size: 16px;
+    }
+    
+    .upload-area {
+        padding: 40px 15px;
+    }
+}
 
 @media only screen and (max-width: 480px) {
-/*Cellphone Screens*/
-
-
-
-.normal-header {
-	display: none;
+    .app-title {
+        font-size: 28px;
+    }
+    
+    .app-subtitle {
+        font-size: 14px;
+    }
+    
+    .upload-area {
+        padding: 30px 10px;
+    }
+    
+    .upload-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
-
-
-.logo h1 {
-	font-size: 50px;
-}
-
-.adjust-image {
-	max-width: 200px;
-	margin-bottom: 40px;
-}
-
-
-
-.header-stylehome {
-	display: none;
-}
-
-
-
-} /*Close Media Query*/
-
-
-
-
-@media only screen and (max-width: 480px) and (orientation: portrait){
-/*Cellphone Screens in portrait*/
-
-.btn-font {
-	font-size: 18px;
-	letter-spacing: .03em;
-}
-
-.add-margintop {
-	margin-top: 10%;
-}
-
-.side-margin {
-	margin-left: 1%;
-	margin-right: 1%;
-}
-
-.adjust-image {
-	max-width: 90%;
-	margin-bottom: 0px;
-}
-
-.space-letters {
-	letter-spacing: .03em;
-}
-
-.logo h1 {
-	font-size: 35px;
-}
-
-.bottom-padding {
-	padding-bottom: 200px;
-}
-
-.mono-font h5 {
-	font-size: 16px;
-}
-
-.new-font {
-	font-family: monospace, serif;
-	font-size: 14px;
-	
-}
-
-
-.tag-font {
-	font-size: 10px;
-}
-
-.add-padding {
-	padding-bottom: 30px;
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
-
-.mob-font {
-	font-size: 16px;
-	
-}
-
-.mob-font1 {
-	font-size: 18px;
-	
-}
-
-li, ol {
-	font-size: 18px;
-}
-
-.fname-font {
-	font-size: 16px;
-}
-
-
-
-} /*Close Media Query*/
-
-
-
-
-@media only screen and (max-width: 480px) and (orientation: landscape){
-/*Cellphone Screens in landscape*/
-
-.btn-font {
-	font-size: 12px;
-	letter-spacing: .03em;
-}
-
-.add-margintop {
-	margin-top: 10%;
-}
-
-.side-margin {
-	margin-left: 15%;
-	margin-right: 15%;
-}
-
-.adjust-image {
-	max-width: 60%;
-	margin-bottom: 10px;
-}
-
-.space-letters {
-	letter-spacing: .03em;
-}
-
-.logo h1 {
-	font-size: 35px;
-}
-
-.bottom-padding {
-	padding-bottom: 150px;
-}
-
-.mono-font h5 {
-	font-size: 16px;
-}
-
-.new-font {
-	font-family: monospace, serif;
-	font-size: 11px;
-	
-}
-
-
-.add-padding {
-	padding-bottom: 30px;
-	padding-left: 2px;
-	padding-right: 2px;
-}
-
-.tag-font {
-	font-size: 12px;
-}
-
-
-.normal-header {
-	display: none;
-}
-
-
-} /*Close Media Query*/
-
-
-@media only all and (min-width: 520px) {
-/*Tablets*/
-
-
-} /*Close Media Query*/
-
-
-@media only all and (max-width: 520px) and (orientation: landscape) {
-/*Tablets in landscape*/
-
-
-
-
-} /*Close Media Query*/

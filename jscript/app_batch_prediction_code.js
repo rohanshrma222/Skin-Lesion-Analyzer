@@ -1,9 +1,3 @@
-
-
-
-
-
-
 //################################################################################
 
 // ### 1. MAKE A PREDICTION ON THE IMAGE OR MULTIPLE IMAGES THAT THE USER SUBMITS
@@ -57,20 +51,58 @@ async function model_makePrediction(fname) {
 				
 		}).slice(0, 3);
 		
+	// Clear previous predictions
+	$("#prediction-list").empty();
+	
 	// Append the file name to the prediction list
-	$("#prediction-list").append(`<li class="w3-text-blue fname-font" style="list-style-type:none;">
-	${fname}</li>`);
+	$("#prediction-list").append(`<li class="file-name" style="list-style-type:none;">
+	<i class="fas fa-file-image"></i> ${fname}</li>`);
 	
-	//$("#prediction-list").empty();
+	// Show the results section
+	$("#results-section").show();
+	
 	top5.forEach(function (p) {
-	
-		$("#prediction-list").append(`<li style="list-style-type:none;">${p.className}: ${p.probability.toFixed(3)}</li>`);
-	
+		// Calculate a confidence class based on probability
+		let confidenceClass = '';
+		let riskLevel = '';
 		
+		if (p.probability > 0.7) {
+			confidenceClass = 'w3-text-red';
+			riskLevel = 'High';
+		} else if (p.probability > 0.4) {
+			confidenceClass = 'w3-text-orange';
+			riskLevel = 'Medium';
+		} else {
+			confidenceClass = 'w3-text-blue';
+			riskLevel = 'Low';
+		}
+		
+		// Format the probability as a percentage
+		const percentage = (p.probability * 100).toFixed(1) + '%';
+		
+		// Create a more visually appealing result item
+		$("#prediction-list").append(`
+			<li class="prediction-item" style="list-style-type:none;">
+				<div class="w3-row">
+					<div class="w3-col s7">
+						<span>${p.className}</span>
+					</div>
+					<div class="w3-col s3">
+						<span class="${confidenceClass}"><b>${percentage}</b></span>
+					</div>
+					<div class="w3-col s2">
+						<span class="${confidenceClass}"><b>${riskLevel}</b></span>
+					</div>
+				</div>
+				<div class="w3-light-grey w3-round-large" style="height:4px; margin-top:5px;">
+					<div class="${confidenceClass} w3-round-large" style="height:4px;width:${percentage}"></div>
+				</div>
+			</li>
+		`);
 	});
 	
 	// Add a space after the prediction for each image
-	$("#prediction-list").append(`<br>`);
+	$("#prediction-list").append(`<li style="list-style-type:none;"><hr style="margin:15px 0;opacity:0.2;"></li>`);
 		
 }
 
@@ -105,9 +137,11 @@ async function model_delayedLog(item, dataURL) {
 	await model_delay();
 	
 	// display the user submitted image on the page by changing the src attribute.
-	// The problem is here. Too slow.
 	$("#selected-image").attr("src", dataURL);
-	$("#displayed-image").attr("src", dataURL); //#########
+	
+	// Show the image preview and hide the placeholder
+	$("#no-image-selected").hide();
+	$("#image-preview").show();
 	
 	// log the item only after a delay.
 	//console.log(item);
@@ -152,16 +186,3 @@ async function model_processArray(array) {
 		reader.readAsDataURL(file);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

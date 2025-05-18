@@ -1,6 +1,3 @@
-
-
-
 //#############################################################
 
 // ### 1. LOAD THE MODEL IMMEDIATELY WHEN THE PAGE LOADS
@@ -33,20 +30,28 @@ function predictOnLoad() {
 let model;
 (async function () {
 	
-	model = await tf.loadModel('http://skin.test.woza.work/final_model_kaggle_version1/model.json');
-	$("#selected-image").attr("src", "http://skin.test.woza.work/assets/samplepic.jpg");
+	// Show loading animation
+	$('.progress-bar').show();
+	
+	try {
+		// Try to load the model from local path first
+		model = await tf.loadModel('final_model_kaggle_version1/model.json');
+		$("#selected-image").attr("src", "assets/samplepic.jpg");
+	} catch (e) {
+		// Fallback to remote URL if local fails
+		console.log("Loading from remote URL due to:", e);
+		model = await tf.loadModel('http://skin.test.woza.work/final_model_kaggle_version1/model.json');
+		$("#selected-image").attr("src", "http://skin.test.woza.work/assets/samplepic.jpg");
+	}
 	
 	// Hide the model loading spinner
-	// This line of html gets hidden:
-	// <div class="progress-bar">Ai is Loading...</div>
 	$('.progress-bar').hide();
 	
+	// Add a success message
+	$('.progress-container').html('<div class="w3-text-green"><i class="fas fa-check-circle"></i> AI model loaded successfully</div>');
 	
-	// Simulate a click on the predict button.
-	// Make a prediction on the default front page image.
-	predictOnLoad();
-	
-	
+	// Don't show the sample image on initial load to match the design
+	// We'll keep the no-image-selected view visible
 	
 })();
 
@@ -108,20 +113,50 @@ $("#predict-button").click(async function () {
 		}).slice(0, 3);
 	
 
-		// Append the file name to the prediction list
-		var file_name = 'samplepic.jpg';
-		$("#prediction-list").append(`<li class="w3-text-blue fname-font" style="list-style-type:none;">${file_name}</li>`);
-		
-		//$("#prediction-list").empty();
-		top5.forEach(function (p) {
-		
-			// ist-style-type:none removes the numbers.
-			// https://www.w3schools.com/html/html_lists.asp
-			$("#prediction-list").append(`<li style="list-style-type:none;">${p.className}: ${p.probability.toFixed(3)}</li>`);
-		
-			
-		});
+	// Append the file name to the prediction list
+	var file_name = 'Sample Image';
+	$("#prediction-list").empty();
+	$("#prediction-list").append(`<li class="file-name" style="list-style-type:none;"><i class="fas fa-file-image"></i> ${file_name}</li>`);
 	
+	top5.forEach(function (p) {
+		// Calculate a confidence class based on probability
+		let confidenceClass = '';
+		let riskLevel = '';
+		
+		if (p.probability > 0.7) {
+			confidenceClass = 'w3-text-red';
+			riskLevel = 'High';
+		} else if (p.probability > 0.4) {
+			confidenceClass = 'w3-text-orange';
+			riskLevel = 'Medium';
+		} else {
+			confidenceClass = 'w3-text-blue';
+			riskLevel = 'Low';
+		}
+		
+		// Format the probability as a percentage
+		const percentage = (p.probability * 100).toFixed(1) + '%';
+		
+		// Create a more visually appealing result item
+		$("#prediction-list").append(`
+			<li class="prediction-item" style="list-style-type:none;">
+				<div class="w3-row">
+					<div class="w3-col s7">
+						<span>${p.className}</span>
+					</div>
+					<div class="w3-col s3">
+						<span class="${confidenceClass}"><b>${percentage}</b></span>
+					</div>
+					<div class="w3-col s2">
+						<span class="${confidenceClass}"><b>${riskLevel}</b></span>
+					</div>
+				</div>
+				<div class="w3-light-grey w3-round-large" style="height:4px; margin-top:5px;">
+					<div class="${confidenceClass} w3-round-large" style="height:4px;width:${percentage}"></div>
+				</div>
+			</li>
+		`);
+	});
 	
 });
 
@@ -145,15 +180,10 @@ $("#image-selector").change(async function () {
 	// the FileReader reads one image at a time
 	fileList = $("#image-selector").prop('files');
 	
-	//$("#prediction-list").empty();
-	
 	// Start predicting
 	// This function is in the app_batch_prediction_code.js file.
 	model_processArray(fileList);
 	
 });
-
-
-
 
 
